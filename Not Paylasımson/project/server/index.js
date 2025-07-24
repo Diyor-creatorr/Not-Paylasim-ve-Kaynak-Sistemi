@@ -20,7 +20,7 @@ dotenv.config({ path: envPath });
 
 // Set default environment variables if not present
 process.env.JWT_SECRET = process.env.JWT_SECRET || 'your-super-secret-jwt-key-2024';
-process.env.MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://sa:4o05iVafzdHCGand@cluster0.tob8c.mongodb.net/notesharing';
+process.env.MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://sifre@cluster0.tob8c.mongodb.net/database';
 process.env.PORT = process.env.PORT || 5000;
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
