@@ -43,7 +43,7 @@ const io = new Server(server, {
   }
 });
 
-// Connected users map
+// Bağlı kullanıcıların haritası
 const connectedUsers = new Map();
 
 io.on('connection', (socket) => {
@@ -65,7 +65,7 @@ io.on('connection', (socket) => {
   });
 });
 
-// Make io accessible to routes
+// Rotalar için io erişilebilir yap
 app.set('io', io);
 
 // Middleware
@@ -84,17 +84,17 @@ app.use(fileUpload({
   limits: { fileSize: 50 * 1024 * 1024 }, // 50MB max file size
 }));
 
-// Serve static files from uploads directory
+//uploads klasöründen statik dosyaları sun
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// API routes
+// API rotaları
 app.use('/api/auth', authRoutes);
 app.use('/api/notes', noteRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/chat', chatRoutes);
 
-// MongoDB connection
+// MongoDB bağlantısı
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('MongoDB Basarili baglandi');
@@ -108,7 +108,7 @@ mongoose.connect(process.env.MONGO_URI)
     process.exit(1);
   });
 
-// Start server
+// Server'ı başlat
 server.listen(process.env.PORT, () => {
   console.log(`Server ${process.env.PORT} portunda calisiyor`);
 });
